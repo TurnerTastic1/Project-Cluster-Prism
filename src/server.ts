@@ -1,9 +1,13 @@
 
 // Importing module
 import express from 'express';
+import dotenv from 'dotenv';
   
 const app = express();
-const PORT = 3000;
+
+dotenv.config();
+
+const PORT = process.env.PORT;
   
 // Handling GET / Request
 app.get('/', (req, res) => {
