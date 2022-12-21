@@ -6,5 +6,8 @@ module.exports = {
     globals: {
       window: true,
       module: true
+    },
+    rules: {
+      "semi": [2, "always"]
     }
   };
