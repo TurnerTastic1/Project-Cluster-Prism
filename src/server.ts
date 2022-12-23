@@ -5,6 +5,9 @@ import config from './config/config';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 
+// Importing routes
+import authRoutes from './routes/auth/auth.routes';
+
 const app = express();
 
 mongoose.set('strictQuery', false);
@@ -26,6 +29,12 @@ mongoose
 app.get('/', (req, res) => {
     res.send('Welcome to octo journey!');
 });
+
+app.use(express.json());
+
+app.use('/api/user', authRoutes);
+
+
   
 // Server setup
 app.listen(PORT,() => {
