@@ -4,6 +4,6 @@ const app = express.Router();
 
 import middleware from '../../middleware/auth';
 
-app.post('/createuser', middleware.inputValidation);
+app.post('/signup', middleware.inputValidation);
 
 export = app;

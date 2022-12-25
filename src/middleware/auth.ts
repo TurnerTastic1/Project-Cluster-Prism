@@ -10,12 +10,13 @@ const inputValidation = (req: Request, res: Response, next: NextFunction) => {
       password: Joi.string().min(6).required()
     });
 
-    if (!schema.validate(req.body)) {
-        res.status(400).send('validation error');
-        next;
+    if (schema.validate(req.body).error != undefined) {
+        res.status(400).send('issue');
+        return next();
     } 
-    res.status(200).send('gucci');
+    res.status(200).send('testing lol');
   };
+
 
 
 export default { inputValidation };
