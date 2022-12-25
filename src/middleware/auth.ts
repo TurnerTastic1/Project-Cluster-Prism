@@ -12,10 +12,9 @@ const inputValidation = (req: Request, res: Response, next: NextFunction) => {
   });
 
   if (schema.validate(req.body).error != undefined) {
-    res.status(400).send('Inputted values do not match necessary requirements');
-    return next();
-  } 
-  res.status(200).send('why?');
+    return res.status(400).send('Error - item: ' + schema.validate(req.body).error?.details[0].message);
+  }
+  return next();
 };
 
 const validateUsernameAndEmail = async (req: Request, res: Response, next: NextFunction) => {
@@ -24,8 +23,10 @@ const validateUsernameAndEmail = async (req: Request, res: Response, next: NextF
   if (emailExist) return res.status(400).send('Email already in use!');
 
   // Checking if username is already in DB
-  const usernameExist = await User.findOne({ name: req.body.email });
+  const usernameExist = await User.findOne({ name: req.body.name });
   if (usernameExist) return res.status(400).send('Username already in use!');
+
+  return next();
 };
 
 
