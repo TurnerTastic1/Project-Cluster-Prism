@@ -4,6 +4,7 @@ const app = express.Router();
 
 import middleware from '../../middleware/auth';
 
-app.post('/signup', middleware.inputValidation);
+// User model to see requirments for inputs
+app.post('/signup', [ middleware.inputValidation, middleware.validateUsernameAndEmail ]);
 
 export = app;
