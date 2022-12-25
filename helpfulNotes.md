@@ -2,6 +2,8 @@
 
 https://www.youtube.com/watch?v=TbT7eO1fxuI
 
+https://blog.airbrake.io/blog/nodejs-error-handling/node-js-err_http_headers_sent#:~:text=According%20to%20the%20Node.js%20docs%2C%20an%20ERR_HTTP_HEADERS_SENT%20is,has%20already%20been%20written%20to%20the%20HTTP%20response.
+
 
 ## TODO:
 # Basic:
