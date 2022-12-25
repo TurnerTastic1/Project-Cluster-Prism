@@ -9,6 +9,6 @@ module.exports = {
   },
   rules: {
     "semi": [2, "always"],
-    "indent": ["error", 2]
+    "indent": [1, 2]
   }
 };
