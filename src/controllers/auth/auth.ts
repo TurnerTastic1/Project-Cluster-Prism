@@ -1,7 +1,6 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwtMiddleware from '../../middleware/authJwt';
-import config from '../../config/config';
 
 
 import User from '../../models/user.model';

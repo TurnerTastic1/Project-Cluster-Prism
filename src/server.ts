@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 
 // Importing routes
 import authRoutes from './routes/auth/auth.routes';
+import protectedRoutes from './routes/posts/protectedContent.routes';
 
 const app = express();
 
@@ -33,9 +34,8 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 app.use('/api/user', authRoutes);
+app.use('/api/user', protectedRoutes);
 
-
-  
 // Server setup
 app.listen(PORT,() => {
   console.log('The application is listening on '
