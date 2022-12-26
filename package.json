@@ -14,7 +14,6 @@
     "lint": "npx eslint ./src",
     "lint:fix": "npx eslint ./src --fix"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TurnerTastic1/reimagined-octo-journey.git"
@@ -27,7 +26,9 @@
   "homepage": "https://github.com/TurnerTastic1/reimagined-octo-journey#readme",
   "dependencies": {
     "@dalenguyen/openai": "^0.11.3",
+    "@supercharge/strings": "^1.29.1",
     "@types/bcrypt": "^5.0.0",
+    "@types/spotify-api": "^0.0.19",
     "bcrypt": "^5.1.0",
     "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
@@ -36,6 +37,7 @@
     "jsonwebtoken": "^9.0.0",
     "jwt-simple": "^0.5.6",
     "mongoose": "^6.8.1",
+    "node-fetch": "^3.3.0",
     "nodemon": "^2.0.20",
     "openai": "^3.1.0"
   },
