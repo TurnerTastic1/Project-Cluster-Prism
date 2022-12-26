@@ -1,5 +1,9 @@
 import 'dotenv/config';
 
+const jwt = {
+  token: process.env.TOKEN || 'Complex token'
+};
+
 const MONGO_OPTIONS = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -32,7 +36,8 @@ const SERVER = {
 
 const config = {
   mongo: MONGO,
-  server: SERVER
+  server: SERVER,
+  jwt: jwt
 };
 
 export default config;

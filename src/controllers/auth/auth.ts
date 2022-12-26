@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-//import jwt from 'jwt-simple';
+import jwt from 'jsonwebtoken';
+import config from '../../config/config';
 
 import User from '../../models/user.model';
 
@@ -12,7 +13,7 @@ const signupController = async (req: Request, res: Response) => {
   const user = new User({
     name: req.body.name,
     email: req.body.email,
-    password: hashPassword
+    password: hashPassword || undefined
   });
   try {
     const savedUser = await user.save();
@@ -24,7 +25,7 @@ const signupController = async (req: Request, res: Response) => {
 };
 
 const signinController = async (req: Request, res: Response, next: NextFunction) => {
-// Checking if user/email exists and is in DB
+  // Checking if user/email exists and is in DB
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(400).send('Email is not associated with any known accounts');
 
@@ -32,7 +33,9 @@ const signinController = async (req: Request, res: Response, next: NextFunction)
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if (!validPass) return res.status(400).send('Invalid password');
 
-  return res.status(200).send('Signed in');
+  // Create and assign token
+  const token = jwt.sign({ _id: user._id }, config.jwt.token);
+  res.header('Auth-token', token).send(token);
 };
 
 export default { signupController, signinController };
