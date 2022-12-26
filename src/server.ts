@@ -33,8 +33,8 @@ app.get('/', (req, res) => {
 
 app.use(express.json());
 
-app.use('/api/user', authRoutes);
-app.use('/api/user', protectedRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/posts', protectedRoutes);
 
 // Server setup
 app.listen(PORT,() => {

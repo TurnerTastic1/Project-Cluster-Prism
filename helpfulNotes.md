@@ -4,6 +4,8 @@ https://www.youtube.com/watch?v=TbT7eO1fxuI
 
 https://blog.airbrake.io/blog/nodejs-error-handling/node-js-err_http_headers_sent#:~:text=According%20to%20the%20Node.js%20docs%2C%20an%20ERR_HTTP_HEADERS_SENT%20is,has%20already%20been%20written%20to%20the%20HTTP%20response.
 
+https://stackoverflow.com/questions/57492546/what-is-the-difference-between-js-and-mjs-files#:~:text=1%20mjs%20an%20extension%20for%20EcmaScript%20modules%202,developers%20to%20organize%20code%20into%20smaller%20reusable%20components.
+
 
 ## TODO:
 # Basic:

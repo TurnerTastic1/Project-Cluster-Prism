@@ -1,7 +1,11 @@
 import 'dotenv/config';
 
+const openAI = {
+  token: process.env.OPENAI_TOKEN || 'invalid'
+};
+
 const jwt = {
-  token: process.env.TOKEN || 'Complex token'
+  token: process.env.JWT_TOKEN || 'Complex token'
 };
 
 const MONGO_OPTIONS = {
@@ -37,7 +41,8 @@ const SERVER = {
 const config = {
   mongo: MONGO,
   server: SERVER,
-  jwt: jwt
+  jwt: jwt,
+  openAI: openAI 
 };
 
 export default config;
