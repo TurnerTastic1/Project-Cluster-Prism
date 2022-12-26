@@ -1,7 +1,7 @@
 
 // Importing module
 import express from 'express';
-import config from './config/config';
+import config from './config/config.js';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 
