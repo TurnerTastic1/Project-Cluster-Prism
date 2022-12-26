@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import jwtMiddleware from '../../middleware/authJwt';
 import config from '../../config/config';
+
 
 import User from '../../models/user.model';
 
@@ -24,7 +25,7 @@ const signupController = async (req: Request, res: Response) => {
 
 };
 
-const signinController = async (req: Request, res: Response, next: NextFunction) => {
+const signinController = async (req: Request, res: Response) => {
   // Checking if user/email exists and is in DB
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(400).send('Email is not associated with any known accounts');
@@ -34,7 +35,7 @@ const signinController = async (req: Request, res: Response, next: NextFunction)
   if (!validPass) return res.status(400).send('Invalid password');
 
   // Create and assign token
-  const token = jwt.sign({ _id: user._id }, config.jwt.token);
+  const token = await jwtMiddleware.createValidJwt(JSON.stringify(user._id));
   res.header('Auth-token', token).send(token);
 };
 
