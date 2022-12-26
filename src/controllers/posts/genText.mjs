@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /**
- * This is a .mjs file for the reason we import modules from openai
+ * This is a .mjs file because we import modules from openai
  * Necessary to use import due to openai and eslint rules
  * TSC build still adds this to build/ directory
  */
