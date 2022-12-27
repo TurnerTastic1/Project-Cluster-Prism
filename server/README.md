@@ -1,8 +1,17 @@
-# reimagined-octo-journey
+# Project Cluster Prism
 
-API written in TypeScript
+Server side of the Cluster Prism FullStack project
+Developed by [TurnerTastic](https://github.com/TurnerTastic1)
 
+## API/Server Usage
 
-## thinking
+Clone [Project-Cluster-Prism](https://github.com/TurnerTastic1/Project-Cluster-Prism)
+#### To start:
+npm run clean
+npm run build
+npm run start
 
-There should be some cooler readme stuff here...
+#### To enter dev mode:
+npm run clean
+npm run build
+npm run dev
