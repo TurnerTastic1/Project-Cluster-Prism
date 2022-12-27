@@ -2,8 +2,6 @@ name: job 1
 
 on:
   push:
-    branches:
-      - folder-structure
   pull_request:
     branches: 
       - main
