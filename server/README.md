@@ -7,11 +7,11 @@ Developed by [TurnerTastic](https://github.com/TurnerTastic1)
 
 Clone [Project-Cluster-Prism](https://github.com/TurnerTastic1/Project-Cluster-Prism)
 #### To start:
-npm run clean
-npm run build
+npm run clean &&
+npm run build &&
 npm run start
 
 #### To enter dev mode:
-npm run clean
-npm run build
+npm run clean &&
+npm run build &&
 npm run dev
