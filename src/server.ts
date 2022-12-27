@@ -10,6 +10,7 @@ import authRoutes from './routes/auth/auth.routes';
 import protectedRoutes from './routes/posts/protectedContent.routes';
 import spotifyRoutes from './routes/posts/spotifyApi.routes';
 import callbackRoutes from './routes/posts/callback.routes';
+import openInfoRoutes from './routes/posts/openInfo.routes';
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/posts', protectedRoutes);
 app.use('/api/spotify', spotifyRoutes);
 app.use('/', callbackRoutes);
+app.use('/', openInfoRoutes);
 
 // Server setup
 app.listen(PORT,() => {
