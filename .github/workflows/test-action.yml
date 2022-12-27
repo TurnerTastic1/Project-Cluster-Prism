@@ -6,6 +6,11 @@ on:
     branches: 
       - main
 
+
+defaults:
+  run:
+    working-directory: server
+
 jobs:
   build:
 
@@ -17,7 +22,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: cd server
       - run: npm i
       - run: npm ci
       - run: npm run build --if-present
