@@ -2,7 +2,6 @@ name: job 1
 
 on:
   push:
-    branches: - "**"
   pull_request:
     branches: [ main ]
 
