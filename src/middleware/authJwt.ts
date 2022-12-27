@@ -3,7 +3,11 @@ import jwt from 'jsonwebtoken';
 import config from '../config/config';
 
 const createValidJwt = async (user_id: string) => {
-  const token = jwt.sign( user_id, config.jwt.token );
+  const payload = {
+    "userId": user_id,
+    "iat": Date.now(),
+  };
+  const token = jwt.sign( payload, config.jwt.secret, {expiresIn: '1s'});
   return token;
 };
 
@@ -12,8 +16,9 @@ const checkValidJwt = async (req: Request, res: Response, next: NextFunction) =>
   if (!token) return res.status(400).send('Error - No token provided');
 
   try {
-    jwt.verify(token, config.jwt.token);
-    console.log('Valid jwt');
+    const verify = jwt.verify(token, config.jwt.secret);
+    console.log(verify);
+    
     return next();
   } catch (error) {
     return res.status(401).send('Error - Unauthorized to view content: ' + error);

@@ -5,7 +5,7 @@ const openAI = {
 };
 
 const jwt = {
-  token: process.env.JWT_TOKEN || 'Complex token'
+  secret: process.env.JWT_SECRET || 'Complex secret'
 };
 
 const MONGO_OPTIONS = {
