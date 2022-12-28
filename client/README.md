@@ -1,3 +1,1 @@
-# red is a color
-
-front end
+# Red is a color
