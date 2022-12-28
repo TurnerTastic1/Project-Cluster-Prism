@@ -6,6 +6,9 @@ Developed by [TurnerTastic](https://github.com/TurnerTastic1)
 ## API/Server Usage
 
 Clone [Project-Cluster-Prism](https://github.com/TurnerTastic1/Project-Cluster-Prism)
+
+#### Configure ports using Dotenv:
+more info coming soon
 #### To start:
 npm run clean &&
 npm run build &&
