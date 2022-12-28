@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
-
-    const [backendData, setBackendData] = useState([{}]);
-
-    useEffect(() => {
-        fetch("/api").then(
-            response => response.json()
-        ).then(
-            data => {
-                setBackendData(data);
-            }
-        )
-    }, []);
-
-    return (
-        <div>
-            {(typeof backendData === 'undefined') ? (
-                <p>Loading...</p>
-            ): (
-                <p>{backendData.content}</p>
-            )}
-        </div>
-    )
+    let routes = useRoutes([
+        { path: "/", element: <Home /> },
+      ]);
+      return routes;
 };
 
-export default App;
+const AppWrapper = () => {
+    return (
+      <Router>
+        <App />
+      </Router>
+    );
+  };
+
+export default AppWrapper;
