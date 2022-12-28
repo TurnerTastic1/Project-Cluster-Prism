@@ -1,1 +1,11 @@
-# Red is a color
+# Project Cluster Prism
+
+Client side of the Cluster Prism FullStack project
+Developed by [TurnerTastic](https://github.com/TurnerTastic1)
+
+## Client Usage
+
+Clone [Project-Cluster-Prism](https://github.com/TurnerTastic1/Project-Cluster-Prism)
+
+### Run:
+npm run start
