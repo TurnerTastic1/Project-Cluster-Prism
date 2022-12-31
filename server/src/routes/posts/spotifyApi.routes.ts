@@ -13,15 +13,15 @@ const AUTHORIZE = 'https://accounts.spotify.com/authorize';
 app.get('/login', function (req, res) {
   const state = str.random(16);
   const scope = 'user-read-private user-read-email';
-
-  res.send('https://accounts.spotify.com/authorize?' +
+  
+  res.status(200).json({"content": 'https://accounts.spotify.com/authorize?' +
           querystring.stringify({
             client_id: clientId,
             response_type: 'code',
             redirect_uri: redirectUri,
             scope: scope,
             state: state
-          }));
+          })});
 // }, function(req, res) {
 
 //     const state = str.random(16);

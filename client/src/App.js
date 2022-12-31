@@ -3,16 +3,27 @@ import { BrowserRouter as Router, useRoutes, Routes, Route } from "react-router-
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Navbar from "./pages/Navbar";
+import Spotify from "./pages/Spotify";
 import HttpsRedirect from "react-https-redirect";
 
-const AppWrapper = () => {
-		return (
-			<div>
-        <Navbar></Navbar>
-        <Home></Home>
-      </div>
-		);
+function App() {
+
+  let routes = useRoutes([
+    { path: "/", element: <Home /> },
+    { path: "/login", element: <Login /> },
+    { path: "/callback", element: <Spotify />}
+  ]);
+  return routes;
+
+		
 	};
 
-  
-export default AppWrapper;
+  const appWraper = () => {
+    return (
+      <Router>
+        <Navbar/>
+        <App />
+      </Router>
+    );
+  };  
+export default appWraper;

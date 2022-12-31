@@ -5,7 +5,7 @@ function Home() {
     const [backendData, setBackendData] = useState([{}]);
 
     useEffect(() => {
-        fetch("/api").then(
+        fetch("/api/spotify/login").then(
             response => response.json()
         ).then(
             data => {
