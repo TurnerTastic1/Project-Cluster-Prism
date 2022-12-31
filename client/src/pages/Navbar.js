@@ -1,37 +1,46 @@
-import React from "react";
-import "../css/Navbar.css";
-import { Link } from "react-router-dom";
 
-function Navbar({ brandLink }) {
-  return (
-    <nav className="navbar bg-white flex md:flex-row flex-col justify-between items-center md:py-6 py-5 md:px-24 px-8 font-sans antialiased">
-      <div className="branding md:text-3xl text-2xl">
-        {brandLink === "link" ? (
-          <Link to="/" className="flex">
-            <p className="text-first-light">Cluster</p>
-            <p classname="text-second-light">-</p>
-            <p className="text-third-light">Neupane</p>
-          </Link>
-        ) : (
+// import Typewriter from "typewriter-effect";
+import "../css/Home.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+function Navbar() {
+
+    return (
+      <div>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                      Cluster-Prism
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>  
+      </div>
+    )
+};
+
+export default Navbar;
+
+/*
+<div className="intro-header">
           <a href="#home" className="flex">
             <p className="text-first-light">Arpan</p>
             <p className="text-last-light">Neupane</p>
           </a>
-        )}
-      </div>
-      <ul className="flex flex-center md:mt-0 mt-3 md:text-xl text-base">
-        <li className="mx-3 text-nav-link-light hover:text-nav-link-light-hover">
-          <a href="/#about">About</a>
-        </li>
-        <li className="mx-3 text-nav-link-light hover:text-nav-link-light-hover">
-          <Link to="/projects">Projects</Link>
-        </li>
-        <li className="mx-3 text-nav-link-light hover:text-nav-link-light-hover">
-          <Link to="/contact">Contact</Link>
-        </li>
-      </ul>
-    </nav>
-  );
-}
-
-export default Navbar;
+          </div>
+*/

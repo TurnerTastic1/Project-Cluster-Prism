@@ -4,29 +4,11 @@ html {
   
   #home {
     min-height: 100vh;
-    color: var(--light-alt);
+    color: var(--dark);
   }
 
-  .welcome {
+  .container {
 	position: relative;
-	background-color: var(--dark);
-	padding: 16px;
-	border-radius: 16px;
-	display: flex;
-	align-items: center;
-	transition: 0.5s;
-	cursor: pointer;
-	margin-bottom: 16px;
-}
-
-.intro-header {
-    position: relative;
-	
-	padding: 16px;
-	border-radius: 16px;
-	
-	align-items: center;
-	transition: 0.5s;
-	cursor: pointer;
-	margin-bottom: 16px;
+	background-color: var(--light);
+	padding: 200px;
 }
