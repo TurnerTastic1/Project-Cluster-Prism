@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, useRoutes, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Navbar from "./pages/Navbar";
 import Spotify from "./pages/Spotify";
-import HttpsRedirect from "react-https-redirect";
 
 function App() {
 
@@ -16,14 +15,14 @@ function App() {
   return routes;
 
 		
-	};
+};
 
-  const appWraper = () => {
-    return (
-      <Router>
-        <Navbar/>
-        <App />
-      </Router>
-    );
-  };  
+const appWraper = () => {
+  return (
+    <Router>
+      <Navbar/>
+      <App />
+    </Router>
+  );
+};  
 export default appWraper;
