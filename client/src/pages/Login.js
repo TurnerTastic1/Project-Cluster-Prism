@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import "../css/Login.css";
+import styled from "styled-components";
+import { AccountBox } from "./login/accountBox";
 
-function Home() {
+const AppContainer = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+`;
 
-  const [backendData, setBackendData] = useState([{}]);
-
-  useEffect(() => {
-    fetch("/api/spotify/login").then(
-      response => response.json()
-    ).then(
-      data => {
-        setBackendData(data);
-      }
-    );
-  }, []);
+function Login() {
 
   return (
-    <div>
-      {(typeof backendData === 'undefined') ? (
-        <p>Loading...</p>
-      ): (
-        <p>{backendData.content}</p>
-      )}
-    </div>
+    <AppContainer>
+      <AccountBox />
+    </AppContainer>
   );
-};
+}
 
-export default Home;
+export default Login;
