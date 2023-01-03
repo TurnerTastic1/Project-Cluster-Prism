@@ -19,6 +19,11 @@ const userSchema = new mongoose.Schema({
     max: 1024,
     min: 6
   },
+  spotify_auth: {
+    type: String,
+    max: 1024,
+    default: 'Invalid'
+  },
   data: {
     type: Date,
     default: Date.now

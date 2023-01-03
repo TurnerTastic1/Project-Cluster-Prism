@@ -28,7 +28,7 @@ app.get('/login', function (req, res) {
 
 app.post('/recieveCode', function (req, res) {
   try {
-    process.env.SPOTIFY_OAUTH = req.body;
+    const code = req.body;
   } catch (error) {
     console.log(error);
     res.status(404);

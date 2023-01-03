@@ -5,6 +5,19 @@ import Login from "./pages/Login";
 import Navbar from "./pages/Navbar";
 import Spotify from "./pages/Spotify";
 
+import "./App.css";
+import styled from "styled-components";
+import { AccountBox } from './pages/accountBox';
+
+const AppContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 function App() {
 
   let routes = useRoutes([
@@ -19,10 +32,19 @@ function App() {
 
 const appWraper = () => {
   return (
-    <Router>
-      <Navbar/>
-      <App />
-    </Router>
+    <AppContainer>
+      <AccountBox/>
+    </AppContainer>
   );
 };  
 export default appWraper;
+
+
+/*
+
+
+<Router>
+      <Navbar/>
+      <App />
+    </Router>
+*/
