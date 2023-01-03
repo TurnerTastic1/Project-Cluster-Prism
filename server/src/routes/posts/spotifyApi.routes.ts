@@ -3,6 +3,8 @@ import controller from '../../controllers/posts/spotify';
 import config from '../../config/APIconfig';
 import querystring from 'querystring';
 import str from '@supercharge/strings';
+import 'dotenv/config';
+import { readSync } from 'fs';
 
 const app = express.Router();
 
@@ -22,28 +24,21 @@ app.get('/login', function (req, res) {
             scope: scope,
             state: state
           })});
-// }, function(req, res) {
+});
 
-//     const state = str.random(16);
-//     const scope = 'user-read-private user-read-email';
-  
-//     res.redirect('https://accounts.spotify.com/authorize?' +
-//       querystring.stringify({
-//         response_type: 'code',
-//         client_id: clientId,
-//         scope: scope,
-//         redirect_uri: redirectUri,
-//         state: state
-//       }));
-//   });
+app.post('/recieveCode', function (req, res) {
+  try {
+    process.env.SPOTIFY_OAUTH = req.body;
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+  }
+  res.status(200).json({"content":"success"});
+});
 
-// app.post('/protected',controller.spotifyController, async (req, res) => {
-//     res.status(200).send('Protected info');
-  });
-
-  app.post('/protected',controller.spotifyController, async (req, res) => {
-    res.status(200).send('Protected info');
-  });
+app.post('/protected',controller.spotifyController, async (req, res) => {
+  res.status(200).send('Protected info');
+});
 
 export = app;
 

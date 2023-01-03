@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from 'react';
 
-function getOAuthCode() {
+function GetOAuthCode() {
   let code = null;
   try {
     const url = new URL(window.location.href);
@@ -10,6 +11,29 @@ function getOAuthCode() {
     return code;
   }
   return code;
+}
+
+function SendOAuthCode() {
+  const [backendData, setBackendData] = useState([{}]);
+  const code = GetOAuthCode();
+  useEffect(() => {
+    fetch("/api/spotify/recieveCode", {
+      method:"POST",
+      headers:{
+        "Content-type":"application/json"
+      },
+      body:JSON.stringify(code)
+    }).then(
+      response => response.json()
+    ).then(
+      data => {
+        setBackendData(data);
+      }
+    );
+  }, [code]);
+
+  return backendData.content;
+  
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -25,7 +49,7 @@ function Spotify() {
       <p>
                 testing baby
       </p>
-      {getOAuthCode()}
+      {SendOAuthCode()}
     </div>
   );
 };
