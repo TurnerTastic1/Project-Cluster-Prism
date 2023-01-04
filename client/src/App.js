@@ -26,12 +26,8 @@ function App() {
 const appWraper = () => {
   return (
     <Router>
-      <div>
         <Navbar/>
-      </div>
-      <div>
         <App/>
-      </div>
     </Router>
     
     
