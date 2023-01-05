@@ -6,7 +6,8 @@ import User from '../models/user.model';
 
 const inputValidation = (req: Request, res: Response, next: NextFunction) => {
   const schema = Joi.object({
-    name: Joi.string().min(6).required(),
+    firstname: Joi.string().min(1).required(),
+    lastname: Joi.string().min(1).required(),
     email: Joi.string().min(6).required().email(),
     password: Joi.string().min(6).required()
   });
@@ -22,9 +23,9 @@ const validateUsernameAndEmail = async (req: Request, res: Response, next: NextF
   const emailExist = await User.findOne({ email: req.body.email });
   if (emailExist) return res.status(400).send('Email already in use!');
 
-  // Checking if username is already in DB
-  const usernameExist = await User.findOne({ name: req.body.name });
-  if (usernameExist) return res.status(400).send('Username already in use!');
+  // // Checking if username is already in DB
+  // const usernameExist = await User.findOne({ name: req.body.name });
+  // if (usernameExist) return res.status(400).send('Username already in use!');
 
   return next();
 };

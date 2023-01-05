@@ -9,13 +9,15 @@ const signupController = async (req: Request, res: Response) => {
   // Hash password
   const salt = await bcrypt.genSalt(10);
   const hashPassword = await bcrypt.hash(req.body.password, salt);
-  // Create a new user
-  const user = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: hashPassword || undefined
-  });
+  
   try {
+    // Create a new user
+    const user = new User({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      password: hashPassword || undefined
+    });
     const savedUser = await user.save();
     if (savedUser) res.send('User registered successfully!'); // Need if statement for eslint rules
   } catch (err) {
@@ -27,7 +29,7 @@ const signupController = async (req: Request, res: Response) => {
 const signinController = async (req: Request, res: Response) => {
   // Checking if user/email exists and is in DB
   const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(400).json({"error": "Email is not associated with any known accounts"});
+  if (!user) return res.status(400).json({"error": "Invalid email"});
 
   // Checking if password is correct
   const validPass = await bcrypt.compare(req.body.password, user.password);
@@ -41,7 +43,8 @@ const signinController = async (req: Request, res: Response) => {
     "token": token,
     "user": {
       "id": user.id,
-      "name": user.name,
+      "firstname": user.firstname,
+      "lastname": user.lastname,
       "email": user.email,
       "data": user.data
     }
