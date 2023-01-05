@@ -7,9 +7,12 @@ function ApiFetch() {
   const [backendData, setBackendData] = useState([{}]);
   try {
     useEffect(() => {
-      fetch("/api/spotify/login").then(
-        response => response.json()
-      ).then(
+      fetch("/api/spotify/login").then(response => {
+        if (!response.ok) {
+          return Promise.reject(response);
+        }
+        return response.json();
+      }).then(
         data => {
           setBackendData(data);
         }

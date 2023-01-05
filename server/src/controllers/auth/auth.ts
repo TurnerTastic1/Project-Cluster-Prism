@@ -36,7 +36,7 @@ const signinController = async (req: Request, res: Response) => {
   // Create and assign token
   const token = await jwtMiddleware.createValidJwt(JSON.stringify(user._id));
   //console.log(token.);
-  res.header('Auth-token', token).send(token);
+  res.status(200).json({"token": token});
 };
 
 export default { signupController, signinController };
