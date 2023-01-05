@@ -23,6 +23,10 @@ function Login(email, password) {
   ).catch(error => {
     if (error.response.status === 400) {
       console.log("Got error: " + error.response.data.error);
+      swal ( "Oops" ,  error.response.data.error ,  "error", {
+        buttons: false,
+        timer:2000
+      });
       return error.response.data.error;
     }
   }

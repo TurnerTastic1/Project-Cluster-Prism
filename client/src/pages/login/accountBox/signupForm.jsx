@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import {
   BoldLink,
-  BoxContainer,
+  SignupBoxContainer,
   FormContainer,
   Input,
   MutedLink,
@@ -14,9 +14,10 @@ export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
 
   return (
-    <BoxContainer>
+    <SignupBoxContainer>
       <FormContainer>
-        <Input type="text" placeholder="Full Name" />
+        <Input type="text" placeholder="First Name" />
+        <Input type="text" placeholder="Last Name" />
         <Input type="email" placeholder="Email" />
         <Input type="password" placeholder="Password" />
         <Input type="password" placeholder="Confirm Password" />
@@ -30,6 +31,6 @@ export function SignupForm(props) {
           Signin
         </BoldLink>
       </MutedLink>
-    </BoxContainer>
+    </SignupBoxContainer>
   );
 }

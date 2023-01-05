@@ -6,6 +6,17 @@ export const BoxContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
+  
+`;
+
+export const SignupBoxContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px
+  
 `;
 
 export const FormContainer = styled.form`
