@@ -27,16 +27,25 @@ const signupController = async (req: Request, res: Response) => {
 const signinController = async (req: Request, res: Response) => {
   // Checking if user/email exists and is in DB
   const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(400).send('Email is not associated with any known accounts');
+  if (!user) return res.status(400).json({"error": "Email is not associated with any known accounts"});
 
   // Checking if password is correct
   const validPass = await bcrypt.compare(req.body.password, user.password);
-  if (!validPass) return res.status(400).send('Invalid password');
+  if (!validPass) return res.status(400).json({"error": "Invalid password"});
 
   // Create and assign token
   const token = await jwtMiddleware.createValidJwt(JSON.stringify(user._id));
   //console.log(token.);
-  res.status(200).json({"token": token});
+  res.status(200).json({
+    "message": "Logged in",
+    "token": token,
+    "user": {
+      "id": user.id,
+      "name": user.name,
+      "email": user.email,
+      "data": user.data
+    }
+  });
 };
 
 export default { signupController, signinController };

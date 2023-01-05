@@ -10,50 +10,7 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 
-function ApiFetch() {
-  const [backendData, setBackendData] = useState([{}]);
-  try {
-    useEffect(() => {
-      fetch("/api").then(
-        response => response.json()
-      ).then(
-        data => {
-          setBackendData(data);
-        }
-      );
-    }, []);
-    return backendData.content;
-  } catch (error) {
-    console.log("Error while getting openinfo - " + error);
-    return undefined;
-  }
-  
-}
-
-async function LoginUser(email, password) {
-  const data = {
-    "email": email,
-    "password": password
-  };
-  return fetch('/api/auth/signin', {
-    method:"POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body:
-      JSON.stringify(data)
-  }).then(
-    response => {
-      if (!response.ok) {
-        console.log('Response not ok: '+ response.status);
-      }
-      
-      return response.json();
-    }
-  ).catch(
-    error => { console.log('Got Error:' + error); }
-  );
-}
+import Login from '../../../services/auth/login';
 
 function LoginForm(props) {
 
@@ -69,15 +26,13 @@ function LoginForm(props) {
   };
 
   const handleSubmit = async event => {
-    event.preventDefault();
-    if (email !== "" && password !== "") {
-      console.log(email + password);
-      const info = await LoginUser(email, password);
-      console.log(info.token);
-      return null;
-    } else {
-      alert("Must fill in boxes");
-    }
+    event.preventDefault(); 
+    
+    //console.log(email + password);
+    const response = await Login(email, password);
+    if (!response) return null;
+    console.log("Res info: " + (response.user.name));
+    return null;
     
   };
 
