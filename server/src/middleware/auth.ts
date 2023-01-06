@@ -13,7 +13,7 @@ const inputValidation = (req: Request, res: Response, next: NextFunction) => {
   });
 
   if (schema.validate(req.body).error != undefined) {
-    return res.status(400).send('Error - item: ' + schema.validate(req.body).error?.details[0].message);
+    return res.status(400).json({'error': 'Error - item: ' + schema.validate(req.body).error?.details[0].message});
   }
   return next();
 };
@@ -21,7 +21,7 @@ const inputValidation = (req: Request, res: Response, next: NextFunction) => {
 const validateUsernameAndEmail = async (req: Request, res: Response, next: NextFunction) => {
   // Checking if email is already in DB
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.status(400).send('Email already in use!');
+  if (emailExist) return res.status(400).json({'error': 'Email already in use!'});
 
   // // Checking if username is already in DB
   // const usernameExist = await User.findOne({ name: req.body.name });

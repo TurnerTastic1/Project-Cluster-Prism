@@ -14,13 +14,14 @@ const RegisterButton = styled.button`
   font-size: 13px;
   font-weight: 600;
   border-radius: 20px;
-  background-color: #6adf76;
-  background-image: linear-gradient(to right, transparent 0%, #00c9ff 100%);
+  background-color: transparent;
+
   transition: all 240ms ease-in-out;
   cursor: pointer;
 
   &:hover {
-    background-color: #00c9ff;
+    color: #2ecc71;
+    background-color: #111;
   }
 
   &:not(:last-of-type) {
@@ -37,7 +38,7 @@ const LoginButton = styled.button`
   font-weight: 600;
   border-radius: 20px;
   background-color: transparent;
-  border: 2px solid #111;
+
   transition: all 240ms ease-in-out;
   cursor: pointer;
 
@@ -63,12 +64,9 @@ export function Accessibility(props) {
       <LoginButton>
         <Link href="/login">Login</Link>
       </LoginButton>
+      <RegisterButton>
+        <Link href="/login">Register</Link>
+      </RegisterButton>
     </AccessibilityContainer>
   );
 }
-
-/*
-  <RegisterButton>
-        <Link href="/login">Register</Link>
-      </RegisterButton>
- */

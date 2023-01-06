@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import {
   BoldLink,
   BoxContainer,
@@ -9,25 +9,9 @@ import {
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
-
-import swal from 'sweetalert';
 import Login from '../../../services/auth/login.service';
 
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyles = createGlobalStyle`
-
-input:autofill {
-  border: 3px solid darkorange;
-}
-
-input:-webkit-autofill {
-  border: 3px solid darkorange;
-}
-`;
-
 function LoginForm(props) {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

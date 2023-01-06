@@ -19,9 +19,9 @@ const signupController = async (req: Request, res: Response) => {
       password: hashPassword || undefined
     });
     const savedUser = await user.save();
-    if (savedUser) res.send('User registered successfully!'); // Need if statement for eslint rules
+    if (savedUser) res.status(200).json({'message': 'User registered successfully!'}); // Need if statement for eslint rules
   } catch (err) {
-    res.status(400).send(err);
+    res.status(400).json({'error': err});
   }
 
 };
