@@ -18,7 +18,7 @@ const LinksWrapper = styled.ul`
 const LinkItem = styled.li`
   height: 100%;
   padding: 0 1.1em;
-  color: #222;
+  color: #fff;
   font-weight: 500;
   font-size: 14px;
   align-items: center;
@@ -36,6 +36,10 @@ const Link = styled.a`
   text-decoration: none;
   color: inherit;
   font-size: inherit;
+
+  &:hover {
+    color: #2ecc71;
+  }
 `;
 
 export function NavLinks(props) {

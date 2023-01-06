@@ -10,8 +10,8 @@ const BoxContainer = styled.div`
   min-height: 550px;
   display: flex;
   flex-direction: column;
-  border-radius: 19px;
-  background-color: #fff;
+  border-radius: 25px;
+  background-color: #000;
   box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
   position: relative;
   overflow: hidden;
@@ -37,8 +37,8 @@ const BackDrop = styled(motion.div)`
   transform: rotate(60deg);
   top: -290px;
   left: -70px;
-  background: rgb(34,193,195);
-  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  background: rgb(118, 111, 232);
+  
 `;
 
 const HeaderContainer = styled.div`
@@ -139,8 +139,8 @@ function AccountBox(props) {
           )}
           {active === "signup" && (
             <HeaderContainer>
-              <HeaderText>Create</HeaderText>
-              <HeaderText>Account</HeaderText>
+              <HeaderText>Welcome to</HeaderText>
+              <HeaderText>Project Cluster-Prism</HeaderText>
               <SmallText>Please sign-up to continue!</SmallText>
             </HeaderContainer>
           )}

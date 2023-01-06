@@ -9,6 +9,13 @@ import Login from "./pages/Login";
 import ConnectSpotify from "./pages/ConnectSpotify";
 import Spotify from "./pages/Spotify";
 
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+  width: 100wh;
+  height: 100vh;
+  background: #fff;
+`;
 
 function App() {
 
@@ -25,10 +32,12 @@ function App() {
 
 const appWraper = () => {
   return (
-    <Router>
+    <AppContainer>
+      <Router>
         <Navbar/>
         <App/>
-    </Router>
+      </Router>
+    </AppContainer>
     
     
   );

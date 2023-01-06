@@ -2,21 +2,21 @@ html {
     scroll-behavior: smooth;
   }
   
-  #home {
+  home {
     min-height: 100vh;
-    color: var(--dark);
+    color: rgb(0, 0, 0);
   }
 
   .container {
 	position: relative;
 	background-color: var(--light);
-	padding: 200px;
+	padding: 100px;
 }
 
   .spotify-logo {
     width: 300px;
     height: 300px;
-    background-image: url(../assets/R.jpg);
+    background-image: url(../assets/temp_one.png);
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 20%;

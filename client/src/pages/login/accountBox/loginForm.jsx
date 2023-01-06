@@ -10,7 +10,8 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 
-import Login from '../../../services/auth/login';
+import swal from 'sweetalert';
+import Login from '../../../services/auth/login.service';
 
 function LoginForm(props) {
 
@@ -30,10 +31,25 @@ function LoginForm(props) {
     
     //console.log(email + password);
     const response = await Login(email, password);
-    if (!response) return null;
-    console.log("Res info: " + (response.user.name));
-    return null;
-    
+    if (response === null) {
+      console.log("Error while logging in - null return");
+      return null;
+    } 
+    else if ('message' in response) {
+      
+      if (!window.localStorage) {
+        console.log("Error - localstorage not supported by your browser");
+        return null;
+      }
+      localStorage.setItem('accessToken', response.token);
+      localStorage.setItem('user', JSON.stringify(response.user));
+      
+      setTimeout(function(){
+        window.location.href = "/";
+      },3000);
+      
+      return null;
+    }
   };
 
   const { switchToSignup } = useContext(AccountContext);

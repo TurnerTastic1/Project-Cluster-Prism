@@ -1,36 +1,44 @@
 import React, { useEffect, useState } from 'react';
-// import Typewriter from "typewriter-effect";
+
 import "../css/Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import styled from 'styled-components';
 
-function ApiFetch() {
-  const [backendData, setBackendData] = useState([{}]);
-  try {
-    useEffect(() => {
-      fetch("/api/spotify/login").then(response => {
-        if (!response.ok) {
-          return Promise.reject(response);
-        }
-        return response.json();
-      }).then(
-        data => {
-          setBackendData(data);
-        }
-      );
-    }, []);
-    return backendData.content;
-  } catch (error) {
-    console.log("Error while getting spotify authorization link - " + error);
-    return undefined;
-  }
+import { Typewriter } from 'react-simple-typewriter'; // https://www.npmjs.com/package/react-simple-typewriter
+
+const HomeContainer = styled.div`
+  width: 100wh;
+  height: 100vh;
+  background: #111;
+`;
+
+const TypewriterContainer = styled.div`
+  height: 300px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 90px;
   
-}
+`;
+
+
 
 function Home() {
 
   return (
-    <div className="home">
+    <HomeContainer>
       <div className="container">
+        <div className="row">
+          <TypewriterContainer>
+            <Typewriter
+              words={['Welcome to Project Cluster-Prism', 'Generate AI images from Spotify data']}
+              cursor
+              cursorStyle='_'
+              typeSpeed={70}
+              deleteSpeed={90}
+              delaySpeed={1500}
+            />
+          </TypewriterContainer>
+        </div>
         <div className="row">
           <div className="col">
             <div>
@@ -41,15 +49,8 @@ function Home() {
             <a href="/connectspotify" className="btn btn-primary" tabIndex="-1" role="button" aria-disabled="true">Connect Spotify account</a>
           </div>
         </div>
-        <div className="row">
-          <div className="col">
-            <p>
-              {window.location.href}
-            </p>
-          </div>
-        </div>
       </div>
-    </div>
+    </HomeContainer>
   );
 };
 

@@ -14,6 +14,8 @@ const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 1.5em;
+  background: rgb(74,56,171);
+  background: radial-gradient(circle, rgba(74,56,171,1) 0%, rgba(1,1,1,1) 26%, rgba(62,34,100,1) 100%);
 `;
 
 const LeftSection = styled.div`
