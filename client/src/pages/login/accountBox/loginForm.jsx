@@ -13,6 +13,19 @@ import { AccountContext } from "./accountContext";
 import swal from 'sweetalert';
 import Login from '../../../services/auth/login.service';
 
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
+
+input:autofill {
+  border: 3px solid darkorange;
+}
+
+input:-webkit-autofill {
+  border: 3px solid darkorange;
+}
+`;
+
 function LoginForm(props) {
 
   const [email, setEmail] = useState("");
@@ -57,7 +70,9 @@ function LoginForm(props) {
   return (
     <BoxContainer>
       <FormContainer>
+    
         <Input type="email" onChange={handleEmailInput} placeholder="Email" />
+      
         <Input type="password" onChange={handlePasswordInput} placeholder="Password" />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />

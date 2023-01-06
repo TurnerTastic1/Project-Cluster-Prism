@@ -50,7 +50,17 @@ export const Input = styled.input`
   outline: none;
   border: 1px solid rgba(200, 200, 200, 0.8);
   padding: 0px 10px;
-  
+
+  &:-webkit-autofill {
+    box-shadow: 0 0 0 30px #111 inset !important;
+  }
+  &:-webkit-autofill:hover {
+    box-shadow: 0 0 0 30px #111 inset !important;
+  }
+  &:-webkit-autofill:focus {
+    box-shadow: 0 0 0 30px #111 inset !important;
+  }
+  -webkit-text-fill-color: rgba(200, 200, 200, 0.8);
   
   transition: all 200ms ease-in-out;
   font-size: 12px;

@@ -37,13 +37,13 @@ const LoginButton = styled.button`
   font-weight: 600;
   border-radius: 20px;
   background-color: transparent;
-  border: 2px solid #000;
+  border: 2px solid #111;
   transition: all 240ms ease-in-out;
   cursor: pointer;
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #2ecc71;
+    background-color: #111;
   }
 
   &:not(:last-of-type) {

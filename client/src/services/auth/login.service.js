@@ -1,14 +1,19 @@
-import React, {useState} from 'react';
 import axios from 'axios';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 function Login(email, password) {
   if (email === "" || password === "") {
     // alert("Error: Must provide all necessary inputs");
-    
-    swal( "Oops" ,  "Please provide all necessary inputs!" ,  "error" );
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Please fill all input boxes!',
+      background: 'black',
+    });
     return null;
   }
+
+  
   const data = {
     "email": email,
     "password": password
@@ -16,20 +21,30 @@ function Login(email, password) {
   return axios.post('/api/auth/signin', data).then(
     (response) => {
       if ('token' in response.data) {
-        swal("Success", response.data.message, "success", {
-          buttons: false,
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: response.data.message,
+          background: 'black',
+          showConfirmButton: false,
           timer: 2000,
+          
         });
         return response.data;
       } else {
-        swal("Oops", "External server error, please try again", "error");
+        Swal.fire("Oops", "External server error, please try again", "error");
         return null;
       }
     }
   ).catch(error => {
     if (error.response.status === 400) {
       console.log("Got error: " + error.response.data.error);
-      swal ( "Oops" ,  error.response.data.error ,  "error" );
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: error.response.data.error,
+        background: 'black',
+      });
       return null;
     }
   }
@@ -37,4 +52,3 @@ function Login(email, password) {
 }
 
 export default Login;
-
