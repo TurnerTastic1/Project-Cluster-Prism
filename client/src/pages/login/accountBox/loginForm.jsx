@@ -40,9 +40,10 @@ function LoginForm(props) {
       }
       localStorage.setItem('accessToken', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
-      
+      localStorage.setItem('spotifyConnected', JSON.stringify(response.spotifyConnected));
+
       setTimeout(function(){
-        window.location.href = "/";
+        window.location.href = "/profile";
       },3000);
       
       return null;

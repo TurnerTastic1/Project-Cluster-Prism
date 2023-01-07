@@ -6,6 +6,8 @@ import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import Home from "./pages/Home";
 import { Navbar } from "./pages/navbar/nav";
 import Login from "./pages/Login";
+import Profile from "./pages/profile/";
+
 import ConnectSpotify from "./pages/ConnectSpotify";
 import Spotify from "./pages/Spotify";
 
@@ -22,6 +24,7 @@ function App() {
   let routes = useRoutes([
     { path: "/", element: <Home /> },
     { path: "/login", element: <Login />},
+    { path: "/profile", element: <Profile />},
     { path: "/connectspotify", element: <ConnectSpotify /> },
     { path: "/callback", element: <Spotify />}
   ]);

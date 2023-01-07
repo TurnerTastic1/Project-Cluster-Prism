@@ -37,10 +37,14 @@ const signinController = async (req: Request, res: Response) => {
 
   // Create and assign token
   const token = await jwtMiddleware.createValidJwt(JSON.stringify(user._id));
-  //console.log(token.);
-  res.status(200).json({
+  let spotifyConnected = "true";
+  if (user.spotify_auth === "Invalid") {
+    spotifyConnected = "false";
+  }
+  const data = {
     "message": "Logged in",
     "token": token,
+    "spotifyConnected": spotifyConnected,
     "user": {
       "id": user.id,
       "firstname": user.firstname,
@@ -48,7 +52,9 @@ const signinController = async (req: Request, res: Response) => {
       "email": user.email,
       "data": user.data
     }
-  });
+  };
+  //console.log(token.);
+  res.status(200).json(data);
 };
 
 export default { signupController, signinController };
