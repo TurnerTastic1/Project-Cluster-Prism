@@ -39,9 +39,9 @@ function LoginForm(props) {
         return null;
       }
       localStorage.setItem('accessToken', response.token);
-      localStorage.setItem('user', JSON.stringify(response.user));
-      localStorage.setItem('spotifyConnected', JSON.stringify(response.spotifyConnected));
-
+      localStorage.setItem('user', (response.user));
+      localStorage.setItem('spotifyConnected', response.spotifyConnected);
+      
       setTimeout(function(){
         window.location.href = "/profile";
       },3000);
