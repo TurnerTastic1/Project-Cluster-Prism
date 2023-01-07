@@ -35,7 +35,7 @@ function LoginForm(props) {
     else if ('message' in response) {
       
       if (!window.localStorage) {
-        console.log("Error - localstorage not supported by your browser");
+        console.log("Error - Content not supported by your browser");
         return null;
       }
       localStorage.setItem('accessToken', response.token);
