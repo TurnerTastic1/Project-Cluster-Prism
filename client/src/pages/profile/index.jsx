@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import img from "../../assets/background.png";
 
 const ProfileContainer = styled.div`
   width: 100wh;

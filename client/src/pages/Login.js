@@ -1,6 +1,7 @@
 import "../css/Login.css";
 import styled from "styled-components";
 import { AccountBox } from "./login/accountBox";
+import img from "../assets/background.png";
 
 const AppContainer = styled.div`
 width: 100wh;
@@ -9,7 +10,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-background: #111;
+background-image: url(${img});
+
 `;
 
 function Login() {
