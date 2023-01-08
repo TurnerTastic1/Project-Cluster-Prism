@@ -38,9 +38,15 @@ function LoginForm(props) {
         console.log("Error - Content not supported by your browser");
         return null;
       }
-      localStorage.setItem('accessToken', response.token);
-      localStorage.setItem('user', (response.user));
-      localStorage.setItem('spotifyConnected', response.spotifyConnected);
+      try {
+        localStorage.setItem('accessToken', response.token);
+        localStorage.setItem('user', (JSON.stringify(response.user)));
+        localStorage.setItem('spotifyConnected', response.spotifyConnected);
+      } catch (error) {
+        console.log(error);
+        return null;
+      }
+      
       
       setTimeout(function(){
         window.location.href = "/profile";

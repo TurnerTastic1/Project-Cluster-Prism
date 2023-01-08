@@ -53,6 +53,9 @@ export function MobileNavLinks(props) {
       {isOpen && (
         <LinksWrapper>
           <LinkItem>
+            <Link href="/profile">Profile</Link>
+          </LinkItem>
+          <LinkItem>
             <Link href="#">About us</Link>
           </LinkItem>
           <LinkItem>
@@ -60,9 +63,6 @@ export function MobileNavLinks(props) {
           </LinkItem>
           <LinkItem>
             <Link href="#">Explore</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="#">Impact</Link>
           </LinkItem>
           <Marginer />
           <Accessibility />

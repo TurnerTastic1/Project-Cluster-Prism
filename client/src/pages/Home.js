@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import "../css/Home.css";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from 'styled-components';
+
+import logo from '../assets/temp_one.png';
+
 
 //import { Typewriter } from 'react-simple-typewriter'; // https://www.npmjs.com/package/react-simple-typewriter
 import  Typewriter  from 'typewriter-effect';
@@ -10,6 +13,7 @@ const HomeContainer = styled.div`
   width: 100wh;
   height: 100vh;
   background: #111;
+  padding: 100px;
 `;
 
 const TypewriterContainer = styled.div`
@@ -17,12 +21,39 @@ const TypewriterContainer = styled.div`
   color: #fff;
   font-weight: 300;
   font-size: 90px;
+`;
+
+const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const LogoImg = styled.div`
+  width: 300px;
+  height: 300px;
   
+  
+
+  img {
+    
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 
 
 function Home() {
+
+  const handleImgClick = event => {
+    setTimeout(function(){
+      window.location.href = "/pagenotfound";
+    },1000);
+  };
 
   return (
     <HomeContainer>
@@ -55,7 +86,11 @@ function Home() {
         <div className="row">
           <div className="col">
             <div>
-              <div className="spotify-logo"></div>
+              <LogoWrapper>
+                <LogoImg>
+                  <img src={logo} onClick={handleImgClick} alt="logo" />
+                </LogoImg>
+              </LogoWrapper>
             </div>
           </div>
           <div className="col">

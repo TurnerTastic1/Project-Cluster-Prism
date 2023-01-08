@@ -59,9 +59,10 @@ function Profile() {
     <ProfileContainer>
       <AppBar>
         <Info>
-            Hello {user.id}
+            Hello {user.id} time to code
         </Info>
       </AppBar>
+      <a href="/connectspotify" className="btn btn-primary" tabIndex="-1" role="button" aria-disabled="true">Connect Spotify account</a>
     </ProfileContainer>
   );
 }

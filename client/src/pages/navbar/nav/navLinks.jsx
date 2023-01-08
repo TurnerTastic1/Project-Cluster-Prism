@@ -47,16 +47,16 @@ export function NavLinks(props) {
     <NavLinksContainer>
       <LinksWrapper>
         <LinkItem>
-          <Link href="#">About us</Link>
+          <Link href="/profile">Profile</Link>
         </LinkItem>
         <LinkItem>
-          <Link href="#">How it works</Link>
+          <Link href="/gencluster">Generate Clusters</Link>
         </LinkItem>
         <LinkItem>
-          <Link href="#">Explore</Link>
+          <Link href="/pagenotfound">How it works</Link>
         </LinkItem>
         <LinkItem>
-          <Link href="#">Impact</Link>
+          <Link href="/pagenotfound">About us</Link>
         </LinkItem>
       </LinksWrapper>
     </NavLinksContainer>
