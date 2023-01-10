@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ConnectButton from "../spotify/connect/connectButton";
 import Swal from "sweetalert2";
 
 const ProfileContainer = styled.div`
@@ -53,7 +54,6 @@ function Profile() {
   };
 
   const user = JSON.parse(localStorage.getItem('user'));
-
   return(
     
     <ProfileContainer>
@@ -62,7 +62,7 @@ function Profile() {
             Hello {user.id} time to code
         </Info>
       </AppBar>
-      <a href="/connectspotify" className="btn btn-primary" tabIndex="-1" role="button" aria-disabled="true">Connect Spotify account</a>
+      <ConnectButton/>
     </ProfileContainer>
   );
 }

@@ -12,8 +12,9 @@ import Profile from "./pages/profile/";
 import GenCluster from "./pages/GenCluster";
 
 
-import ConnectSpotify from "./pages/ConnectSpotify";
-import Spotify from "./pages/Spotify";
+// import ConnectSpotify from "./pages/ConnectSpotify";
+//import Spotify from "./pages/Spotify";
+import ConnectSpotify from './pages/spotify/connect';
 
 const AppContainer = styled.div`
   width: 100wh;
@@ -30,12 +31,11 @@ function App() {
     { path: "/login", element: <AccountBox />},
     { path: "/profile", element: <Profile />},
     { path: "/gencluster", element: <GenCluster />},
-    { path: "/connectspotify", element: <ConnectSpotify /> },
-    { path: "/callback", element: <Spotify />}
+    // { path: "/connectspotify", element: <ConnectSpotify /> },
+    { path: "/callback", element: <ConnectSpotify />}
   ]);
-  return routes;
 
-		
+  return routes;
 };
 
 const appWraper = () => {
@@ -46,8 +46,6 @@ const appWraper = () => {
         <App/>
       </Router>
     </AppContainer>
-    
-    
   );
 };  
 export default appWraper;

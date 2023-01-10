@@ -4,7 +4,8 @@ import config from '../../config/APIconfig';
 import querystring from 'querystring';
 import str from '@supercharge/strings';
 import 'dotenv/config';
-import { readSync } from 'fs';
+
+import User from '../../models/user.model';
 
 const app = express.Router();
 
@@ -16,7 +17,7 @@ app.get('/login', function (req, res) {
   const state = str.random(16);
   const scope = 'user-read-private user-read-email';
   
-  res.status(200).json({"content": 'https://accounts.spotify.com/authorize?' +
+  res.status(200).json({"url": 'https://accounts.spotify.com/authorize?' +
           querystring.stringify({
             client_id: clientId,
             response_type: 'code',
@@ -26,14 +27,23 @@ app.get('/login', function (req, res) {
           })});
 });
 
-app.post('/recieveCode', function (req, res) {
-  try {
-    const code = req.body;
-  } catch (error) {
-    console.log(error);
-    res.status(404);
-  }
-  res.status(200).json({"content":"success"});
+app.post('/recieveCode', async function (req, res) {
+  const update = {"spotify_auth": req.body.spotify_auth};
+  const conditions = { "email": req.body.email};
+  
+  User.findOneAndUpdate(conditions, update, function (error: Error) {
+    if (error) {
+      const data = {
+        "error": error
+      };
+      res.status(400).json(data);
+    } else {
+      const data = {
+        "content": "success"
+      };
+      res.status(200).json(data);
+    }
+  });
 });
 
 app.post('/protected',controller.spotifyController, async (req, res) => {
