@@ -3,18 +3,21 @@ import controller from '../../controllers/posts/spotify';
 import config from '../../config/APIconfig';
 import querystring from 'querystring';
 import str from '@supercharge/strings';
+import 'dotenv/config';
+
+import User from '../../models/user.model';
 
 const app = express.Router();
 
 const clientId = config.spotify.clientId;
-const redirectUri = 'http://localhost:3000/callback';
+const redirectUri = 'http://localhost:3000/gencluster';
 const AUTHORIZE = 'https://accounts.spotify.com/authorize';
 
 app.get('/login', function (req, res) {
   const state = str.random(16);
   const scope = 'user-read-private user-read-email';
   
-  res.status(200).json({"content": 'https://accounts.spotify.com/authorize?' +
+  res.status(200).json({"url": 'https://accounts.spotify.com/authorize?' +
           querystring.stringify({
             client_id: clientId,
             response_type: 'code',
@@ -22,28 +25,30 @@ app.get('/login', function (req, res) {
             scope: scope,
             state: state
           })});
-// }, function(req, res) {
+});
 
-//     const state = str.random(16);
-//     const scope = 'user-read-private user-read-email';
+app.post('/recieveCode', async function (req, res) {
+  const update = {"spotify_auth": req.body.spotify_auth};
+  const conditions = { "email": req.body.email};
   
-//     res.redirect('https://accounts.spotify.com/authorize?' +
-//       querystring.stringify({
-//         response_type: 'code',
-//         client_id: clientId,
-//         scope: scope,
-//         redirect_uri: redirectUri,
-//         state: state
-//       }));
-//   });
-
-// app.post('/protected',controller.spotifyController, async (req, res) => {
-//     res.status(200).send('Protected info');
+  User.findOneAndUpdate(conditions, update, function (error: Error) {
+    if (error) {
+      const data = {
+        "error": error
+      };
+      res.status(400).json(data);
+    } else {
+      const data = {
+        "content": "success"
+      };
+      res.status(200).json(data);
+    }
   });
+});
 
-  app.post('/protected',controller.spotifyController, async (req, res) => {
-    res.status(200).send('Protected info');
-  });
+app.post('/protected',controller.spotifyController, async (req, res) => {
+  res.status(200).send('Protected info');
+});
 
 export = app;
 

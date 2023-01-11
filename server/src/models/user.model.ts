@@ -1,10 +1,16 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-  name: {
+  firstname: {
     type: String,
     required: true,
-    min: 6,
+    min: 1,
+    max: 255
+  },
+  lastname:{
+    type: String,
+    required: true,
+    min: 1,
     max: 255
   },
   email: {
@@ -19,9 +25,16 @@ const userSchema = new mongoose.Schema({
     max: 1024,
     min: 6
   },
+  spotify_auth: {
+    type: String,
+    max: 1024,
+    default: 'Invalid'
+  },
   data: {
-    type: Date,
-    default: Date.now
+    dateCreated: {
+      type: Date,
+      default: Date.now
+    }
   }
 });
 
