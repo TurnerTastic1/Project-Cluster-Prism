@@ -1,70 +1,42 @@
 import React from "react";
 import styled from "styled-components";
-import ConnectButton from "../spotify/connect/connectButton";
-import Swal from "sweetalert2";
+import AppBar from "./AppBar";
+import { SendOAuthCode } from '../../services/spotify/connectSpotify.service';
+import {useWindowDimensions} from 'react-native';
 
 const ProfileContainer = styled.div`
   width: 100wh;
   height: 100vh;
   background: #111;
-`;
-
-const AppBar = styled.div`
-  width: 100%;
-  height: 60px;
-  box-shadow: 0 1px 3px rgba(15, 15, 15, 0.13);
-  display: flex;
+  
   align-items: center;
-  padding: 0 1.5em;
-  background: #222;
 `;
 
-const LinkItem = styled.li`
-  height: 100%;
-  padding: 0 1.1em;
-  color: #fff;
-  font-weight: 500;
-  font-size: 14px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  border-top: 2px solid transparent;
-  transition: all 220ms ease-in-out;
-
-  &:hover {
-    border-top: 2px solid #2ecc71;
-  }
-`;
-const Link = styled.a`
-  color: #fff;
-  text-decoration: none;
-  &:hover {
-    color: #2ecc71
-  }
-`;
-
-const Info = styled.p`
-  color: #fff;
-`;
-
-function Profile() {
+function GenCluster() {
+  const {height, width} = useWindowDimensions();
   if (localStorage.getItem('user') === null) {
     window.location.href = "/accessdenied";
     return null;
   };
 
-  const user = JSON.parse(localStorage.getItem('user'));
+
+  let code = null;
+  const url = new URL(window.location.href);
+  const urlParams = new URLSearchParams(url.search);
+  code = urlParams.getAll('code');
+
+  if (code.length > 0) {
+    const response = SendOAuthCode(window.location.href); // .content or visit api writeup
+  }
+
+  const size = (width >= 850);
+  // console.log(localStorage.getItem("spotifyConnected"));
   return(
     
     <ProfileContainer>
-      <AppBar>
-        <Info>
-            Hello {user.id} time to code
-        </Info>
-      </AppBar>
-      <ConnectButton/>
+      { size && <AppBar/> }
     </ProfileContainer>
   );
 }
 
-export default Profile;
+export default GenCluster;

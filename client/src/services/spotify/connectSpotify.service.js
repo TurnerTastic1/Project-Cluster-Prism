@@ -42,6 +42,7 @@ function SendOAuthCode(windowLocation) {
     (response) => {
       // Updating local spotify connection boolean
       localStorage.setItem('spotifyConnected', "true");
+      console.log("Connected and " + typeof(localStorage.getItem('spotifyConnected')));
       return response.data;
     }
   ).catch(error => {

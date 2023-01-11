@@ -5,11 +5,13 @@ import { connectspotify } from '../../../services/spotify/connectSpotify.service
 const ButtonWrapper = styled.div`
   background: inherit;
   display: flex;
+  padding-top: 10px;
+  padding-left: 10px;
 `;
 
 const ButtonItem = styled.button`
   width: 100wh;
-  height: 5vh;
+  height: 40px;
  
   color: #fff;
   font-size: 15px;
@@ -23,6 +25,7 @@ const ButtonItem = styled.button`
 
   &:hover {
     color: #2ecc71;
+    background: #111;
   }
 `;
 
@@ -45,15 +48,13 @@ function ConnectButton() {
 
   const boo = true;
   const user = JSON.parse(localStorage.getItem('user'));
- // localStorage.setItem("spotifyConnected", "false");
   const spotifyConnected = (localStorage.getItem("spotifyConnected") === "true");
-  console.log(spotifyConnected);
   
   return(
     <ButtonWrapper>
       { boo && 
       <ButtonItem onClick={handleSubmit}>
-        Connect spotify here
+        Connect spotify
       </ButtonItem>
       }
     </ButtonWrapper>

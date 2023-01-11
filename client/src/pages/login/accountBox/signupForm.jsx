@@ -50,7 +50,7 @@ export function SignupForm(props) {
       return null;
     } 
     else if ('message' in response) {
-      const response = await Login(data.email, data.password);
+      const response = await Login(email, password);
       if (response === null) {
         console.log("Error while logging in - null return");
         return null;
@@ -62,7 +62,7 @@ export function SignupForm(props) {
           return null;
         }
         localStorage.setItem('accessToken', response.token);
-        localStorage.setItem('user', (response.user));
+        localStorage.setItem('user', JSON.stringify(response.user));
         localStorage.setItem('spotifyConnected', response.spotifyConnected);
         
         setTimeout(function(){

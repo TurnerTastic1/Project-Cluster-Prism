@@ -25,15 +25,11 @@ const Header1Item = styled.h1`
 const LinkItem = styled.li`
   height: 10vh;
   padding: 0 1.1em;
-  color: #fff;
   font-weight: 500;
   font-size: 30px;
   align-items: center;
   justify-content: center;
   display: flex;
-  
-  transition: all 220ms ease-in-out;
-
 `;
 
 const Link = styled.a`

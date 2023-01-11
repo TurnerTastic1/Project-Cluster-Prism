@@ -40,7 +40,7 @@ function LoginForm(props) {
       }
       try {
         localStorage.setItem('accessToken', response.token);
-        localStorage.setItem('user', (JSON.stringify(response.user)));
+        localStorage.setItem('user', JSON.stringify(response.user));
         localStorage.setItem('spotifyConnected', response.spotifyConnected);
       } catch (error) {
         console.log(error);

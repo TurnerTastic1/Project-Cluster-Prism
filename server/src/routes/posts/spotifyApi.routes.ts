@@ -10,7 +10,7 @@ import User from '../../models/user.model';
 const app = express.Router();
 
 const clientId = config.spotify.clientId;
-const redirectUri = 'http://localhost:3000/callback';
+const redirectUri = 'http://localhost:3000/gencluster';
 const AUTHORIZE = 'https://accounts.spotify.com/authorize';
 
 app.get('/login', function (req, res) {
