@@ -93,9 +93,6 @@ function Home() {
               </LogoWrapper>
             </div>
           </div>
-          <div className="col">
-            <a href="/connectspotify" className="btn btn-primary" tabIndex="-1" role="button" aria-disabled="true">Connect Spotify account</a>
-          </div>
         </div>
       </div>
     </HomeContainer>
