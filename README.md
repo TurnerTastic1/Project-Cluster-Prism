@@ -11,5 +11,10 @@ I achieved user Spotify authentication and had a working site with user accounts
 Overall I learned the importance of documenting API's, keeping a clean workspace, and having a structured plan before filling my repo with useless code files. I may come back to this project in the future and complete it, but as of now I am pursuing other interests with things like Swift, Rust and other popular languages/frameworks.
 
 ### Images of working site - First time building a frontend
+#### Home page:
 ![Home page](/assets/HomePage.png?raw=true "Home page")
+
+#### Signup page:
 ![Signup page](/assets/SignupPage.png?raw=true "Signup page")
+
+Want to see more? Clone the repo and follow client and server README's to run locally
