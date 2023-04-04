@@ -46,8 +46,9 @@ app.post('/recieveCode', async function (req, res) {
   });
 });
 
-app.post('/protected',controller.spotifyController, async (req, res) => {
-  res.status(200).send('Protected info');
+app.post('/protected', controller.spotifyController, async (req, res) => {
+  console.log('protected spotify route');
+  res.status(200).send('Protected spotify info');
 });
 
 export = app;

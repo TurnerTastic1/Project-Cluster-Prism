@@ -19,7 +19,7 @@ mongoose.set('strictQuery', false);
 const PORT = config.server.port;
 const SERVERNAME = config.server.hostname;
 
-// Connect to db
+// Connect to db 
 mongoose
   .connect(config.mongo.url, config.mongo.options)
   .then(() => {
